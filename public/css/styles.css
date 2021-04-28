@@ -18,7 +18,9 @@ body{
 .logo{
     width: 200px;
 }
-
+.input-barra{
+    width: 60vw;
+}
 .copy-header{
     font-weight: 400;
     text-align: center;
@@ -83,6 +85,10 @@ h2{
 .contenedor-articulo:hover div h3{
     opacity: 1;
 }
+.contenedor-articulo:hover .logo-envio{
+    transform: rotate(-90deg);
+}
+
 .uno, .dos{
     width: 95%;
     text-align: center;
@@ -116,7 +122,6 @@ h2{
     position: absolute;
     right: 20px;
     top: -15px;
-
 }
 .articulo-x{
     border-top: solid 2px #ebebeb;
@@ -218,7 +223,12 @@ footer h3{
     }
     .main-header-top-bar{
         align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
+    
     .main-navbar{
         margin-top: 20px;
     }
@@ -230,6 +240,8 @@ footer h3{
         max-width: none;
         font-size: 24px;
         font-weight: 500;
+        display: inline-block;
+
     }
     .contenedor-articulo{
         max-width: 20vw;
