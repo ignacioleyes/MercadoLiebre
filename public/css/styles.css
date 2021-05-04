@@ -106,8 +106,7 @@ h2{
 }
 .sub-articulo-x{
     display: flex;
-    align-self: flex-end;
-   
+    align-self: flex-end; 
 }
 .logo-envio{
     display: block ;
