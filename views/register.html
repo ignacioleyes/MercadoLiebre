@@ -45,23 +45,20 @@
             </ul>
         </nav>
     </header>
+    <section class="forms">
         <h2>Registro de usuario</h2>
         <form action="/" method="GET" class="form-registro">
             <div class="control-formulario">
-                <label>Nombre y apellido:</label>
-                <input type="text" name="nombre-apellido" placeholder="Ej: Juan Pérez" class="control">
+                <input type="text" name="nombre-apellido" placeholder="Nombre y Apellido" class="control">
             </div>
             <div class="control-formulario">
-                <label>Nombre de usuario:</label>
-                <input type="text" name="usuario" placeholder="Ej: JuanP123" class="control">
+                <input type="text" name="usuario" placeholder="Usuario" class="control">
             </div>
             <div class="control-formulario">
-                <label>Fecha de nacimiento:</label>
-                <input type="date" name="fecha-nacimiento">
+                <input type="date" name="fecha-nacimiento" placeholder="Fecha de nacimiento" class="control">
             </div>
             <div class="control-formulario">
-                <label>Domicilio:</label>
-                <input type="text" name="domicilio" placeholder="Ej: Belgrano 1800" class="control">
+                <input type="text" name="domicilio" placeholder="Domicilio" class="control">
             </div>
             <div class="control-formulario">
                 <label>Seleccioná tu perfil de usuario:</label>
@@ -77,8 +74,8 @@
                 <label><input type="checkbox" name="categorias" value="vida-sana">Vida sana</label>
             </div> 
             <div class="control-formulario">
-                <label>Foto de usuario:</label>
-                <input type="file" name="avatar" accept=".jpg" multiple>
+                <label>Ingresá una foto</label>
+                <input type="file" name="avatar" accept=".jpg" multiple class="control">
             </div> 
             <div class="control-formulario">
                 <label>Contraseña:</label>
@@ -90,7 +87,8 @@
             </div>  
                 <button type="reset" class="boton">Borrar</button>
                 <button type="submit" class="boton">Enviar</button>
-        </form>      
+        </form> 
+    </section>     
 
 </body>
 <footer class="pie">
