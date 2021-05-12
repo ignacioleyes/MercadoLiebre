@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MercadoLiebre</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <script src="https://kit.fontawesome.com/46b0370ee7.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
+    <%- include("partials/head.ejs") %>
 <body>
     <%- include("partials/header.ejs") %>  
     <section class="forms">
@@ -59,23 +49,5 @@
     </section>     
 
 </body>
-<footer class="pie">
-        <div class="logo-footer">
-            <i class="fas fa-credit-card fa-3x"></i>
-        </div>
-        <h3><strong>Pagá con tarjeta o en efectivo</strong></h3>
-        <div>Con Mercado Libre Cash, tenés cuotas sin interés con tarjeta o efectivo en puntos de pago. ¡Y simepre es seguro!</div>
-        <div class="logo-footer">
-            <i class="fas fa-gift fa-3x"></i>
-        </div>
-        <h3><strong>Envío gratis desde $2500</strong></h3>
-        <div>Solo por estar registrad@ en Mercado Liebre tenés envíos gratis en miles de productos. Es un beneficio de Mercado Puntos.</div>
-        <div class="logo-footer">
-            <i class="fas fa-user-shield fa-3x"></i>
-        </div>
-        <h3><strong>Seguridad, de principio a fin</strong></h3>
-        <div>¿No te gusta? ¡Devolvelo! En Mercado Liebre, no hay nada que no puedas hacer,porque estás siempre protegid@.</div>
-        <div class="copyright"><strong>Copyright © 1999-2020 MercadoLiebre S.R.L.</strong></div>
-
-    </footer>
+    <%- include("partials/footer.ejs") %>
 </html>
