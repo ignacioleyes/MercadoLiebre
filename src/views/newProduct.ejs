@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>  
+    <section class="forms">
+        <h2>Alta de producto</h2>
+        <form action="/products/new" method="POST" class="form-registro">
+            <div class="control-formulario">
+                <input type="text" name="nombre-producto" placeholder="Nombre del producto" class="control">
+            </div>
+            <div class="control-formulario">
+                <input type="text" name="precio" placeholder="$" class="control">
+            </div>
+            <div class="control-formulario">
+                <input type="number" name="stock-inicial" placeholder="Cantidad..." class="control">
+            </div>
+            <div class="control-formulario">
+                <label>Categoría:</label>
+                <label><input type="checkbox" name="categorias" value="electro">Electro</label>
+                <label><input type="checkbox" name="categorias" value="moda">Moda</label>
+                <label><input type="checkbox" name="categorias" value="hogar">Hogar</label>
+                <label><input type="checkbox" name="categorias" value="jugueteria">Juguetería</label>
+                <label><input type="checkbox" name="categorias" value="vida-sana">Vida sana</label>
+            </div> 
+            <div class="control-formulario">
+                <label>Ingresá una foto</label>
+                <input type="file" name="avatar" accept=".jpg" multiple class="control">
+            </div> 
+            <div class="control-formulario">
+                <textarea class="control" name="comentario" rows="5">Descripción del producto:</textarea>
+            </div>
+                <button type="reset" class="boton">Borrar</button>
+                <button type="submit" class="boton">Enviar</button>
+        </form> 
+    </section>     
+
+</body>
+    <%- include("partials/footer.ejs") %>
+</html>
