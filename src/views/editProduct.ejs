@@ -5,9 +5,9 @@
     <%- include("partials/header.ejs") %>  
     <section class="forms">
         <h2>Alta de producto</h2>
-        <form action="./new" method="POST" class="form-registro">
+        <form action="./edit/:idProduct?_method=PUT" method="POST" class="form-registro">
             <div class="control-formulario">
-                <input type="text" name="nombre-producto" placeholder="Nombre del producto" class="control">
+                <input type="text" name="nombre-producto" placeholder="Nombre del producto" value="<%= productToEdit.name %> " class="control">
             </div>
             <div class="control-formulario">
                 <input type="text" name="precio" placeholder="$" class="control">

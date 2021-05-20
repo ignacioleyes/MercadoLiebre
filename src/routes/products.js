@@ -1,6 +1,6 @@
 const express = require("express");
-const router = express.Router();
 const path = require("path");
+const router = express.Router();
 const productsController = require("../controllers/productsController");
 
 const app = express();
@@ -8,12 +8,18 @@ const app = express();
 const publicPath = path.resolve(__dirname, "./public");
 app.use(express.static(publicPath));
 
-router.get("/", productsController.products);
+router.get("/", productsController.index);//vista
 
-router.get("/new", productsController.newProduct);
-router.post("/new", productsController.createProduct);
+router.get("/product/:idProduct", productsController.show);//vista
 
-router.get("/:idProducto", productsController.show);
+router.get("/edit/:idProduct", productsController.edit);//vista
+
+router.get("/update", productsController.update)//vista
+
+router.get("/new", productsController.newProduct);//vista
+
+router.post("/new", productsController.storeProduct);//logica
+
 
 
 
