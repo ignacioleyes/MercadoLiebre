@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>
+    <%# include("partials/productsContainer") %> 
+    <ul>
+        <% for (let i=0; i < productsResults.length; i++) { %> 
+            <li>
+                <a href="productDetail/<%= productsResults[i].id %> "><%= productsResults[i].name %></a> 
+            </li>
+
+        <% } %> 
+    </ul>
+    <h2>Buscar</h2>
+    <form action="search" method="GET">
+        <input type="text" name="search">
+        <input type="submit" value="Buscar">
+    </form>
+    
+</body>
+    <%- include("partials/footer.ejs") %>
+</html>

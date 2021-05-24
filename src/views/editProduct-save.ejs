@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/header.ejs") %>  
+    <section class="forms">
+        <h2>Editar Productos</h2>
+        <form action="./edit?_method=PUT" method="POST" class="form-registro">
+            <!--<div class="control-formulario">-->
+                <label for="">Nombre</label>
+                <input type="text" name="nombre-producto" placeholder="Nombre del producto" value="<%= productsToEdit.name %> " class="control">
+            <!--</div>-->
+                <button type="submit" class="boton">Editar</button>
+        </form> 
+    </section>     
+
+</body>
+    <%- include("partials/footer.ejs") %>
+</html>

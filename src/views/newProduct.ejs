@@ -7,13 +7,13 @@
         <h2>Alta de producto</h2>
         <form action="./new" method="POST" class="form-registro">
             <div class="control-formulario">
-                <input type="text" name="nombre-producto" placeholder="Nombre del producto" class="control">
+                <input type="text" name="nombre" placeholder="Nombre del producto" class="control">
             </div>
             <div class="control-formulario">
                 <input type="text" name="precio" placeholder="$" class="control">
             </div>
             <div class="control-formulario">
-                <input type="number" name="stock-inicial" placeholder="Cantidad..." class="control">
+                <input type="number" name="stock" placeholder="Cantidad..." class="control">
             </div>
             <div class="control-formulario">
                 <label>Categoría:</label>
@@ -28,7 +28,7 @@
                 <input type="file" name="avatar" accept=".jpg" multiple class="control">
             </div> 
             <div class="control-formulario">
-                <textarea class="control" name="comentario" rows="5">Descripción del producto:</textarea>
+                <textarea class="control" name="descripcion" rows="5">Descripción del producto:</textarea>
             </div>
                 <button type="reset" class="boton">Borrar todo</button>
                 <button type="submit" class="boton">Crear producto</button>
