@@ -6,7 +6,7 @@ const jsonTable = require("../data/productsDataBase.json");
 
 let productsController = {
     index: function(req, res){
-        res.render("products")
+        res.render("./products/products")
     },
     list: function(req, res){
 
@@ -14,16 +14,23 @@ let productsController = {
 
         let products = JSON.parse(archivoJSON);
 
-        res.render("productsList", {"products": products});
+        res.render("./products/productsList", {"products": products});
     },
     show: function (req, res){
-        res.render("productDetail");
+        let idProduct = req.query.id;
+        let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
+        let products = JSON.parse(archivoJSON);
+        for(let i = 0; i < products.length; i++){
+            if(products[i].id == idProduct){
+                res.render("./products/productDetail", {"products":products[i].id});
+                
+            }
+        }
     },
     search: function(req, res){
         let loQueBuscoElUsuario = req.query.search; //obtener informacion de un formulario(req.query)
 
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
-
         let products = JSON.parse(archivoJSON);
 
         let productsResults = [];
@@ -33,7 +40,7 @@ let productsController = {
             }
         }
 
-        res.render("productsResults", {"productsResults": productsResults})
+        res.render("./products/productsResults", {"productsResults": productsResults})
         
 
     },
@@ -55,7 +62,7 @@ let productsController = {
         res.send("Vista para actualizar producto")
     },
     newProduct: function(req, res){
-        res.render("newProduct");
+        res.render("./products/newProduct");
     },
     storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */
         let product = {
@@ -74,13 +81,11 @@ let productsController = {
         }else{
             products = JSON.parse(productsDatabase);
         }
-
         products.push(product);
 
         productsJSON = JSON.stringify(products)
 
-
-        res.redirect("/products/list")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        res.redirect("./products/products/list")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
     },
 
 };

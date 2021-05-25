@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("partials/head.ejs") %>
+    <%- include("../partials/head.ejs") %>
 <body>
-    <%- include("partials/header.ejs") %>
+    <%- include("../partials/header.ejs") %>
     <%# include("partials/productsContainer") %> 
     <ul>
-        <% for (let i=0; i < productsResults.length; i++) { %> 
+        <% for (let i=0; i < products.length; i++) { %> 
             <li>
-                <a href="productDetail/<%= productsResults[i].id %> "><%= productsResults[i].name %></a> 
+                <a href="productDetail/<%= products[i].id %> "><%= products[i].name %></a> 
             </li>
 
         <% } %> 
@@ -19,5 +19,5 @@
     </form>
     
 </body>
-    <%- include("partials/footer.ejs") %>
+    <%- include("../partials/footer.ejs") %>
 </html>
