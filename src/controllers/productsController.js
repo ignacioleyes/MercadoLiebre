@@ -65,6 +65,7 @@ let productsController = {
         res.render("./products/newProduct");
     },
     storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */
+        console.log(req.file);
         let product = {
             nombre: req.body.nombre,
             precio: req.body.precio,
