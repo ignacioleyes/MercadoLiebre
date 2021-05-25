@@ -1,13 +1,25 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
-const mukter = require("multer");
+const multer = require("multer");
 const productsController = require("../controllers/productsController");
 
 const app = express();
 
 const publicPath = path.resolve(__dirname, "./public");
 app.use(express.static(publicPath));
+
+const storage = multer.diskStorage({
+    destination:(req, file, cb)=>{
+        cb(null, path.join(__dirname, "../../public/img"));
+    },
+    filename:(req, file, cb)=>{
+        const imageName = "product-" + Date.now() + path.extname(file.originalname);
+        cb(null, imageName);
+    }
+})
+const fileUpload = multer({ storage: storage });
+
 
 router.get("/", productsController.index);//*VISTA DE TODOS LOS PRODUCTOS */
 
@@ -24,7 +36,7 @@ router.get("/update", productsController.update)//*VISTA ACTUALIZAR PRODUCTO */
 router.get("/new", productsController.newProduct);//*VISTA FORMULARIO DE CREACION DE PRODUCTOS */
 
 
-router.post("/new", productsController.storeProduct);//*LOGICA DE CREACION DE PRODUCTOS */
+router.post("/new", fileUpload.single("imagenProducto"), productsController.storeProduct);//*LOGICA DE CREACION DE PRODUCTOS */
 
 router.put("/edit/:idProduct", function(req, res){
     res.send("Fui por PUT");
