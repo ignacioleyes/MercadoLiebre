@@ -3,8 +3,21 @@
     <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <h2> <%= products.id %>  </h2>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum neque dolore iusto nihil corporis? A explicabo veritatis iure rem quasi! Delectus dolores dignissimos optio et aut ipsam impedit laboriosam sunt!</p>
+    <article class="contenedor-articulo">
+        <div>
+            <h3>Cafetera Moulinex</h3>
+        </div>              
+        <img src="./img/img-cafetera-moulinex.jpg" alt="Cafetera Moulinex" width="80%">
+        <div class="articulo-x">
+            <div class="logo-envio">
+                <i class="fas fa-truck fa-1"></i>
+            </div>
+            <div class="sub-articulo-x">
+                <p class="precio">$6.770</p>
+                <p class="descuento">40% Off</p>
+            </div>                  
+        </div>                 
+    </article>
 </body>
     <%- include("../partials/footer.ejs") %>
 </html>

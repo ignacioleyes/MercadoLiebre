@@ -20,12 +20,9 @@ let productsController = {
         let idProduct = req.query.id;
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
         let products = JSON.parse(archivoJSON);
-        for(let i = 0; i < products.length; i++){
-            if(products[i].id == idProduct){
-                res.render("./products/productDetail", {"products":products[i].id});
-                
-            }
-        }
+        products = products.find(product => idProduct == id);
+                res.render("./products/productDetail", {"products":products});      
+        
     },
     search: function(req, res){
         let loQueBuscoElUsuario = req.query.search; //obtener informacion de un formulario(req.query)
@@ -66,9 +63,20 @@ let productsController = {
     },
     storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */
         
-        if(req.file){       
+        if(req.file){   
+        
+        // const lastID=() => {
+        //     let ultimo = 0
+        //     products.forEach(product=>{
+        //     if (ultimo<product.id){
+        //     ultimo = product.id;
+        //     }
+        //     });
+        //     return ultimo;
+        // }
+
         let product = {
-            id: lastID()+1,
+            id: req.body.id,
             nombre: req.body.nombre,
             precio: req.body.precio,
             stock: req.body.stock,
@@ -85,24 +93,16 @@ let productsController = {
         }else{
             products = JSON.parse(productsDatabase);
         }
-        const lastID=() => {
-            let ultimo = 0
-            products.forEach(product=>{
-            if (ultimo<product.id){
-            ultimo = product.id;
-            }
-        });
-            return ultimo;
-        }
+   
         console.log(products);
         products.push(product);
         console.log(products);
 
-        products = JSON.stringify(products);
+        products = JSON.stringify(products, null, 4);
 
         fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
 
-        res.redirect("list")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        res.redirect("./productDetail/:idProduct")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
         }else{
             res.render("./products/newProduct");
         }
