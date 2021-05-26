@@ -4,19 +4,20 @@
 <body>
     <%- include("../partials/header.ejs") %>
     <%# include("partials/productsContainer") %> 
-    <ul>
-        <% for (let i=0; i < products.length; i++) { %> 
-            <li>
-                <a href="productDetail/<%= products[i].id %> "><%= products[i].name %></a> 
-            </li>
-
-        <% } %> 
-    </ul>
     <h2>Buscar</h2>
     <form action="search" method="GET">
         <input type="text" name="search">
         <input type="submit" value="Buscar">
     </form>
+    <ul>
+        <% for (let i=0; i < products.length; i++) { %> 
+            <li class="form-registro">
+                <a href="productDetail/<%= products[i].id %> "><%= products[i].name %></a> 
+            </li>
+
+        <% } %> 
+    </ul>
+   
     
 </body>
     <%- include("../partials/footer.ejs") %>

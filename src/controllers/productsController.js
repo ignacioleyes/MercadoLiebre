@@ -65,15 +65,18 @@ let productsController = {
         res.render("./products/newProduct");
     },
     storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */
-        console.log(req.file);
+        
+        if(req.file){       
         let product = {
+            id: lastID()+1,
             nombre: req.body.nombre,
             precio: req.body.precio,
             stock: req.body.stock,
             categoria: req.body.categorias,
-            avatar: req.body.avatar,
+            image: req.file.filename,
             descripcion: req.body.descripcion,
-        }
+        }       
+        product.image
         //*GUARDAR EN EL JSON EL PRODUCTO NUEVO CREADO EN EL FORMULARIO */
         let productsDatabase = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
         let products;
@@ -82,11 +85,28 @@ let productsController = {
         }else{
             products = JSON.parse(productsDatabase);
         }
+        const lastID=() => {
+            let ultimo = 0
+            products.forEach(product=>{
+            if (ultimo<product.id){
+            ultimo = product.id;
+            }
+        });
+            return ultimo;
+        }
+        console.log(products);
         products.push(product);
+        console.log(products);
 
-        productsJSON = JSON.stringify(products)
+        products = JSON.stringify(products);
 
-        res.redirect("./products/products/list")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
+
+        res.redirect("list")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        }else{
+            res.render("./products/newProduct");
+        }
+        
     },
 
 };
