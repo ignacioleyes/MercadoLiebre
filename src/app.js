@@ -25,7 +25,8 @@ app.use("/", routesMain);
 app.use("/products", routesProducts);
 
 app.use((req, res, next)=>{
-    res.status(404).render("./views/main/not-found");
+    res.status(404).render("not-found");
+    next();
 })
 
 

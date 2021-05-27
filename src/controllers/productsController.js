@@ -20,7 +20,7 @@ let productsController = {
         let idProduct = req.params.id;
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
         let products = JSON.parse(archivoJSON);
-        products = products.find(product => idProduct == product.id);
+        products = products.find(product => idProduct == products.id);
                 res.render("products/productDetail", {
                     products:products
                 });      
@@ -30,6 +30,7 @@ let productsController = {
         let loQueBuscoElUsuario = req.query.search; //obtener informacion de un formulario(req.query)
 
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
+
         let products = JSON.parse(archivoJSON);
 
         let productsResults = [];
@@ -86,12 +87,12 @@ let productsController = {
 
         let product = {
             id: lastID()+1,
-            nombre: req.body.nombre,
-            precio: req.body.precio,
+            nombre: req.body.name,
+            precio: req.body.price,
             stock: req.body.stock,
-            categoria: req.body.categorias,
+            categoria: req.body.category,
             image: req.file.filename,
-            descripcion: req.body.descripcion,
+            descripcion: req.body.description,
         }       
         product.image
         //*GUARDAR EN EL JSON EL PRODUCTO NUEVO CREADO EN EL FORMULARIO */

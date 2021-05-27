@@ -7,28 +7,28 @@
         <h2>Alta de producto</h2>
         <form action="./new" method="POST" class="form-registro" enctype="multipart/form-data">
             <div class="control-formulario">
-                <input type="text" name="nombre" placeholder="Nombre del producto" class="control">
+                <input type="text" name="name" placeholder="Nombre del producto" class="control">
             </div>
             <div class="control-formulario">
-                <input type="text" name="precio" placeholder="$" class="control">
+                <input type="text" name="price" placeholder="$" class="control">
             </div>
             <div class="control-formulario">
                 <input type="number" name="stock" placeholder="Cantidad..." class="control">
             </div>
             <div class="control-formulario">
                 <label>Categoría:</label>
-                <label><input type="checkbox" name="categorias" value="electro">Electro</label>
-                <label><input type="checkbox" name="categorias" value="moda">Moda</label>
-                <label><input type="checkbox" name="categorias" value="hogar">Hogar</label>
-                <label><input type="checkbox" name="categorias" value="jugueteria">Juguetería</label>
-                <label><input type="checkbox" name="categorias" value="vida-sana">Vida sana</label>
+                <label><input type="checkbox" name="category" value="electro">Electro</label>
+                <label><input type="checkbox" name="category" value="moda">Moda</label>
+                <label><input type="checkbox" name="category" value="hogar">Hogar</label>
+                <label><input type="checkbox" name="category" value="jugueteria">Juguetería</label>
+                <label><input type="checkbox" name="category" value="vida-sana">Vida sana</label>
             </div> 
             <div class="control-formulario">
                 <label>Ingresá una foto</label>
-                <input type="file" name="imagenProducto" accept=".jpg" multiple class="control">
+                <input type="file" name="image" accept=".jpg" multiple class="control">
             </div> 
             <div class="control-formulario">
-                <textarea class="control" name="descripcion" rows="5">Descripción del producto:</textarea>
+                <textarea class="control" name="description" rows="5">Descripción del producto:</textarea>
             </div>
                 <button type="reset" class="boton">Borrar todo</button>
                 <button type="submit" class="boton">Crear producto</button>

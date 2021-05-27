@@ -5,13 +5,13 @@
     <%- include("../partials/header.ejs") %>
     <article class="contenedor-articulo">
         <div>
-            <h3><%= products.nombre %> </h3>
+            <h3><%= products.name %> </h3>
         </div>              
-        <img src="/img/<%= products.image %>" alt="Cafetera Moulinex" width="80%">
+        <img src="/img/<%= products.image %>" width="80%">
         <div class="articulo-x">
             
-            <div class="sub-articulo-x">
-                <p class="precio">$6.770</p>
+            <div>
+                <p class="precio">$<%= products.price %> </p>
                 <p class="descuento">40% Off</p>
             </div>                  
         </div>                 

@@ -9,9 +9,9 @@
         <input type="text" name="search">
         <input type="submit" value="Buscar">
     </form>
-    <ul>
+    <ul class="productsList">
         <% for (let i=0; i < products.length; i++) { %> 
-            <li class="form-registro">
+            <li>
                 <a href="productDetail/<%= products[i].id %> "><%= products[i].name %></a> 
             </li>
 

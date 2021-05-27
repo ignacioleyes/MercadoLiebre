@@ -313,3 +313,17 @@ footer h3{
     background-color: #0022AA;
     color: #fff;
 }
+.error{
+    font-size: 30px;
+}
+.productsList{
+    list-style: none;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: space-around;
+    line-height: 25px;
+    margin: 10px;
+   
+}

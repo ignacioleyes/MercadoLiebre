@@ -4,7 +4,7 @@
         "name": "Cafetera Moulinex Dolce Gusto Edited",
         "price": 100,
         "discount": 50,
-        "category": "visited",
+        "category": "Electro",
         "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
         "image": "img-cafetera-moulinex.jpg"
     },
@@ -13,7 +13,7 @@
         "name": "Macbook Pro 2022",
         "price": 500,
         "discount": 3,
-        "category": "in-sale",
+        "category": "Electro",
         "description": "Macbook Pro 2019 Mpxq2ll/a Intel Core i5 2.3 Ghz 8gb RAM 128gb SSD Pantalla 13.3\" Retina Apple Nueva Original. Importada de USA. Se entrega con la factura de compra para contar con la garantía del fabricante",
         "image": "img-macbook-pro-2019.jpg"
     },
@@ -22,7 +22,7 @@
         "name": "Samsung Galaxy S10",
         "price": 72999,
         "discount": 25,
-        "category": "in-sale",
+        "category": "Electro",
         "description": "Experiencia visual excepcional. Mirá tus series y películas favoritas con la mejor definición.Tendrás colores brillantes y detalles precisos en todos tus contenidos.Disfrutá aún más del mejor entretenimiento gracias a su vasta pantalla y ángulos de visión amplios.",
         "image": "img-samsung-galaxy-s10.jpg"
     },
@@ -33,7 +33,7 @@
         "price": 47900,
         "discount": 10,
         "image": "img-heladera-whirpool.jpg",
-        "category": "in-sale"
+        "category": "Electro"
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@
         "price": 53000,
         "discount": 20,
         "image": "img-camara-nikon.jpg",
-        "category": "in-sale"
+        "category": "Electro"
     },
     {
         "id": 6,
@@ -51,7 +51,7 @@
         "price": 20999,
         "discount": 12,
         "image": "img-aire-acondicionado.jpg",
-        "category": "in-sale"
+        "category": "Electro"
     },
     {
         "id": 7,
@@ -60,7 +60,7 @@
         "price": 36700,
         "discount": 5,
         "image": "img-laptop-lenovo.jpg",
-        "category": "in-sale"
+        "category": "Electro"
     },
     {
         "id": 8,
@@ -69,7 +69,7 @@
         "price": 148000,
         "discount": 2,
         "image": "img-iphone-11.jpg",
-        "category": "in-sale"
+        "category": "Electro"
     },
     {
         "id": 9,
@@ -78,7 +78,7 @@
         "price": 11399,
         "discount": 0,
         "image": "img-apple-magic-keyboard.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 10,
@@ -87,7 +87,7 @@
         "price": 1200,
         "discount": 10,
         "image": "img-mouse-logitech.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 11,
@@ -96,7 +96,7 @@
         "price": 29990,
         "discount": 12,
         "image": "img-parlante-bose.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 12,
@@ -105,7 +105,7 @@
         "price": 32990,
         "discount": 0,
         "image": "img-home-theater-sony.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 13,
@@ -114,7 +114,7 @@
         "price": 34990,
         "discount": 0,
         "image": "img-tv-samsung-smart.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 14,
@@ -123,7 +123,7 @@
         "price": 10999,
         "discount": 5,
         "image": "img-sony-blueray.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 15,
@@ -132,83 +132,16 @@
         "price": 15979,
         "discount": 12,
         "image": "img-bicicleta-fierce.jpg",
-        "category": "visited"
+        "category": "Electro"
     },
     {
         "id": 16,
         "name": "Sony Srs-xb12 Parlante Bluetooth Portátil",
         "price": 4699,
         "discount": 5,
-        "category": "in-sale",
+        "category": "Electro",
         "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
         "image": "img-parlante-sony.jpg"
-    },
-    {
-        "nombre": "sadasd",
-        "precio": "2000",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622029317768.jpg",
-        "descripcion": "Descripción del producto:"
-    },
-    {
-        "nombre": "Nuevo producto",
-        "precio": "48",
-        "stock": "1",
-        "categoria": "electro",
-        "image": "product-1622029480608.jpg",
-        "descripcion": "Descripción del producto:"
-    },
-    {
-        "nombre": "Nuevo producto",
-        "precio": "2000",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622029839326.jpg",
-        "descripcion": "Descripción del producto:"
-    },
-    {
-        "nombre": "Nuevo producto",
-        "precio": "45",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622067318350.jpg",
-        "descripcion": "Descripción del producto:jkljkl"
-    },
-    {
-        "id": 17,
-        "nombre": "Nuevo producto",
-        "precio": "45",
-        "stock": "",
-        "categoria": "electro",
-        "image": "product-1622068746560.jpg",
-        "descripcion": "Descripción del producto:ghjghj"
-    },
-    {
-        "id": 18,
-        "nombre": "Nuevo producto",
-        "precio": "45",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622069039751.jpg",
-        "descripcion": "Descripción del producto:dfgdfg"
-    },
-    {
-        "id": 19,
-        "nombre": "Nuevo producto",
-        "precio": "45",
-        "stock": "3",
-        "categoria": "electro",
-        "image": "product-1622069188415.jpg",
-        "descripcion": "Descripción del producto:yuiuyi"
-    },
-    {
-        "id": 20,
-        "nombre": "Nuevo producto",
-        "precio": "45",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622069518019.jpg",
-        "descripcion": "Descripción del producto:rtyhtry"
     }
+  
 ]
