@@ -166,5 +166,49 @@
         "categoria": "electro",
         "image": "product-1622029839326.jpg",
         "descripcion": "Descripción del producto:"
+    },
+    {
+        "nombre": "Nuevo producto",
+        "precio": "45",
+        "stock": "2",
+        "categoria": "electro",
+        "image": "product-1622067318350.jpg",
+        "descripcion": "Descripción del producto:jkljkl"
+    },
+    {
+        "id": 17,
+        "nombre": "Nuevo producto",
+        "precio": "45",
+        "stock": "",
+        "categoria": "electro",
+        "image": "product-1622068746560.jpg",
+        "descripcion": "Descripción del producto:ghjghj"
+    },
+    {
+        "id": 18,
+        "nombre": "Nuevo producto",
+        "precio": "45",
+        "stock": "2",
+        "categoria": "electro",
+        "image": "product-1622069039751.jpg",
+        "descripcion": "Descripción del producto:dfgdfg"
+    },
+    {
+        "id": 19,
+        "nombre": "Nuevo producto",
+        "precio": "45",
+        "stock": "3",
+        "categoria": "electro",
+        "image": "product-1622069188415.jpg",
+        "descripcion": "Descripción del producto:yuiuyi"
+    },
+    {
+        "id": 20,
+        "nombre": "Nuevo producto",
+        "precio": "45",
+        "stock": "2",
+        "categoria": "electro",
+        "image": "product-1622069518019.jpg",
+        "descripcion": "Descripción del producto:rtyhtry"
     }
 ]

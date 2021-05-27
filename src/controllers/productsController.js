@@ -14,14 +14,16 @@ let productsController = {
 
         let products = JSON.parse(archivoJSON);
 
-        res.render("./products/productsList", {"products": products});
+        res.render("products/productsList", {"products": products});
     },
     show: function (req, res){
-        let idProduct = req.query.id;
+        let idProduct = req.params.id;
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
         let products = JSON.parse(archivoJSON);
-        products = products.find(product => idProduct == id);
-                res.render("./products/productDetail", {"products":products});      
+        products = products.find(product => idProduct == product.id);
+                res.render("products/productDetail", {
+                    products:products
+                });      
         
     },
     search: function(req, res){
@@ -64,19 +66,26 @@ let productsController = {
     storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */
         
         if(req.file){   
-        
-        // const lastID=() => {
-        //     let ultimo = 0
-        //     products.forEach(product=>{
-        //     if (ultimo<product.id){
-        //     ultimo = product.id;
-        //     }
-        //     });
-        //     return ultimo;
-        // }
+            let productsDatabase = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
+            let products;
+            if(productsDatabase == ""){
+                products = [];
+            }else{
+                products = JSON.parse(productsDatabase);
+            }
+       
+            const lastID=() => {
+            let ultimo = 0
+            products.forEach(product=>{
+            if (ultimo<product.id){
+            ultimo = product.id;
+            }
+            });
+            return ultimo;
+        }
 
         let product = {
-            id: req.body.id,
+            id: lastID()+1,
             nombre: req.body.nombre,
             precio: req.body.precio,
             stock: req.body.stock,
@@ -86,14 +95,7 @@ let productsController = {
         }       
         product.image
         //*GUARDAR EN EL JSON EL PRODUCTO NUEVO CREADO EN EL FORMULARIO */
-        let productsDatabase = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
-        let products;
-        if(productsDatabase == ""){
-            products = [];
-        }else{
-            products = JSON.parse(productsDatabase);
-        }
-   
+      
         console.log(products);
         products.push(product);
         console.log(products);
@@ -102,7 +104,7 @@ let productsController = {
 
         fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
 
-        res.redirect("./productDetail/:idProduct")//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        res.redirect("/products/productDetail/"+ product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
         }else{
             res.render("./products/newProduct");
         }
