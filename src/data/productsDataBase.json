@@ -144,38 +144,6 @@
         "image": "img-parlante-sony.jpg"
     },
     {
-        "nombre": "sadasd",
-        "precio": "2000",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622029317768.jpg",
-        "descripcion": "Descripción del producto:"
-    },
-    {
-        "nombre": "Nuevo producto",
-        "precio": "48",
-        "stock": "1",
-        "categoria": "electro",
-        "image": "product-1622029480608.jpg",
-        "descripcion": "Descripción del producto:"
-    },
-    {
-        "nombre": "Nuevo producto",
-        "precio": "2000",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622029839326.jpg",
-        "descripcion": "Descripción del producto:"
-    },
-    {
-        "nombre": "Nuevo producto",
-        "precio": "45",
-        "stock": "2",
-        "categoria": "electro",
-        "image": "product-1622067318350.jpg",
-        "descripcion": "Descripción del producto:jkljkl"
-    },
-    {
         "id": 17,
         "nombre": "Nuevo producto",
         "precio": "45",

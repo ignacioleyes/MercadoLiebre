@@ -22,7 +22,7 @@ let productsController = {
         let products = JSON.parse(archivoJSON);
         products = products.find(product => idProduct == product.id);
                 res.render("products/productDetail", {
-                    products:products
+                    "products":products
                 });      
         
     },
@@ -85,26 +85,26 @@ let productsController = {
         }
 
         let product = {
-            id: lastID()+1,
+            id: lastID() +1,
             nombre: req.body.nombre,
             precio: req.body.precio,
+            descuento: req.body.descuento,
             stock: req.body.stock,
             categoria: req.body.categorias,
             image: req.file.filename,
             descripcion: req.body.descripcion,
-        }       
+        }  
+        console.log(product);     
         product.image
         //*GUARDAR EN EL JSON EL PRODUCTO NUEVO CREADO EN EL FORMULARIO */
       
-        console.log(products);
         products.push(product);
-        console.log(products);
 
         products = JSON.stringify(products, null, 4);
 
         fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
 
-        res.redirect("/products/productDetail/"+ product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        res.redirect("products/productDetail/"+product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
         }else{
             res.render("./products/newProduct");
         }
