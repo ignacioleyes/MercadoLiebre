@@ -21,9 +21,7 @@ let productsController = {
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
         let products = JSON.parse(archivoJSON);
         products = products.find(product => idProduct == products.id);
-                res.render("products/productDetail", {
-                    "products":products
-                });      
+                res.render("products/productDetail", {products: products});      
         
     },
     search: function(req, res){
@@ -89,6 +87,7 @@ let productsController = {
             id: lastID()+1,
             nombre: req.body.name,
             precio: req.body.price,
+            descuento: req.body.discout,
             stock: req.body.stock,
             categoria: req.body.category,
             image: req.file.filename,
