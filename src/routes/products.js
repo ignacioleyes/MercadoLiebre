@@ -36,7 +36,7 @@ router.get("/update", productsController.update)//*VISTA ACTUALIZAR PRODUCTO */
 router.get("/new", productsController.newProduct);//*VISTA FORMULARIO DE CREACION DE PRODUCTOS */
 
 
-router.post("/new", fileUpload.single("imagenProducto"), productsController.storeProduct);//*LOGICA DE CREACION DE PRODUCTOS */
+router.post("/new", fileUpload.single("image"), productsController.storeProduct);//*LOGICA DE CREACION DE PRODUCTOS */
 
 router.put("/edit/:idProduct", function(req, res){
     res.send("Fui por PUT");

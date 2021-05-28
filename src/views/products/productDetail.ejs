@@ -3,20 +3,21 @@
     <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
+    <% for (let i=0; i < products.length; i++) { %> 
     <article class="contenedor-articulo">
         <div>
-            <h3><%= products.nombre %> </h3>
+            <h3><%= products[i].name %> </h3>
         </div>              
-        <img src="/img/<%= products.image %>" alt="Cafetera Moulinex" width="80%">
+        <img src="/img/<%= products[i].image %>" width="80%">
         <div class="articulo-x">
             
-            <div class="sub-articulo-x">
-                <p class="precio"><%= products.precio %> </p>
-                <p class="descuento"><%= products.descuento %> Off</p>
-                <p><%= products.descripcion %> </p>
+            <div>
+                <p class="precio">$<%= products[i].price %> </p>
+                <p class="descuento">40% Off</p>
             </div>                  
         </div>                 
     </article>
+    <% } %> 
 </body>
     <%- include("../partials/footer.ejs") %>
 </html>
