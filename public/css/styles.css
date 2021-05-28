@@ -278,6 +278,7 @@ footer h3{
     padding: 20px 15px;
     width: 55%;
     border: solid 1px black;
+    border-radius: 5px;
     background-color: white;
     padding: 15px;
     margin: 15px 0px;
@@ -293,6 +294,7 @@ footer h3{
 }
 .control{
     width: 45vw;
+    border-radius: 4px;
 }
 .control-formulario label{
     margin-bottom: 5px;
@@ -324,6 +326,10 @@ footer h3{
     align-items:flex-start;
     justify-content: space-around;
     line-height: 25px;
-    margin: 10px;
-   
+    margin: 10px;  
+}
+.errorCreateProduct{
+    color:#f3600b;
+    line-height: 15px;
+    font-size: 10px;
 }

@@ -5,26 +5,34 @@
     <%- include("../partials/header.ejs") %>  
     <section class="forms">
         <h2>Alta de producto</h2>
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errorCreateProduct"><%= error.msg %> </p>             
+        <% }) 
+         }
+         %> 
         <form action="./new" method="POST" class="form-registro" enctype="multipart/form-data">
             <div class="control-formulario">
-                <input type="text" name="name" placeholder="Nombre del producto" class="control">
+                <input type="text" name="name" placeholder="Nombre del producto" class="control" value="<%= locals.old && old.name ? old.name : "" %>">
             </div>
             <div class="control-formulario">
-                <input type="text" name="price" placeholder="$" class="control">
+                <input type="text" name="price" placeholder="Precio" class="control" value="<%= locals.old && old.price ? old.price : "" %>" >
             </div>
             <div class="control-formulario">
-                <input type="text" name="discount" placeholder="%" class="control">
+                <input type="text" name="discount" placeholder="Descuento" class="control" value="<%= locals.old && old.discount ? old.discount : "" %>" >
             </div>
             <div class="control-formulario">
-                <input type="number" name="stock" placeholder="Cantidad..." class="control">
+                <input type="number" name="stock" placeholder="Cantidad..." class="control" value="<%= locals.old && old.stock ? old.stock : "" %>" >
             </div>
             <div class="control-formulario">
-                <label>Categoría:</label>
-                <label><input type="checkbox" name="category" value="electro">Electro</label>
-                <label><input type="checkbox" name="category" value="moda">Moda</label>
-                <label><input type="checkbox" name="category" value="hogar">Hogar</label>
-                <label><input type="checkbox" name="category" value="jugueteria">Juguetería</label>
-                <label><input type="checkbox" name="category" value="vida-sana">Vida sana</label>
+                <select name="category" id="category" class="control">
+                    <option value="">Seleccione una categoría</option>
+                    <option value="electro">Electro</option>
+                    <option value="moda">Moda</option>
+                    <option value="hogar">Hogar</option>
+                    <option value="juguetería">Juguetería</option>
+                    <option value="vida-sana">Vida sana</option>
+                </select>
             </div> 
             <div class="control-formulario">
                 <label>Ingresá una foto</label>

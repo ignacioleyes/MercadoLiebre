@@ -2,6 +2,7 @@ const { request } = require("express");
 const fs = require("fs");
 const path = require("path")
 const jsonTable = require("../data/productsDataBase.json");
+const {validationResult} = require("express-validator");
 
 
 let productsController = {
@@ -62,27 +63,27 @@ let productsController = {
     newProduct: function(req, res){
         res.render("./products/newProduct");
     },
-    storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */
-        
-        if(req.file){   
-            let productsDatabase = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
-            let products;
-            if(productsDatabase == ""){
-                products = [];
-            }else{
-                products = JSON.parse(productsDatabase);
-            }
-       
-            const lastID=() => {
+    storeProduct: function(req, res){//*CON ESTA LOGICA OBTENEMOS LA DATA QUE VIENE DESDE EL FORMULARIO */  
+        let errors = validationResult(req);
+        if(errors.isEmpty()){
+                let productsDatabase = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
+                let products;
+                if(productsDatabase == ""){
+                    products = [];
+                }else{
+                    products = JSON.parse(productsDatabase);
+                }
+            
+        const lastID=() => {
             let ultimo = 0
             products.forEach(product=>{
             if (ultimo<product.id){
-            ultimo = product.id;
+                ultimo = product.id;
             }
             });
             return ultimo;
         }
-
+        
         let product = {
             id: lastID()+1,
             nombre: req.body.name,
@@ -92,21 +93,24 @@ let productsController = {
             categoria: req.body.category,
             image: req.file.filename,
             descripcion: req.body.description,
-        }       
+                }       
         product.image
         //*GUARDAR EN EL JSON EL PRODUCTO NUEVO CREADO EN EL FORMULARIO */
-      
+            
         products.push(product);
-
-        products = JSON.stringify(products, null, 4);
-
-        fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
-
-        res.redirect("products/productDetail/"+product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
-        }else{
-            res.render("./products/newProduct");
-        }
         
+        products = JSON.stringify(products, null, 4);
+        
+        fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
+        
+        res.redirect("products/productDetail/"+product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+              
+        }else{
+            res.render("./products/newProduct", { 
+                errors: errors.array(),
+                old: req.body
+             });
+        }        
     },
 
 };
