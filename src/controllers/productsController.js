@@ -21,8 +21,8 @@ let productsController = {
         let idProduct = req.params.id;
         let archivoJSON = fs.readFileSync(path.join(__dirname, "../data/productsDataBase.json"), {encoding: "utf-8"});
         let products = JSON.parse(archivoJSON);
-        products = products.find(product => idProduct == products.id);
-                res.render("products/productDetail", {products: products});      
+        let singleProduct = products.find(product => idProduct == product.id);+
+                res.render("products/productDetail", {"product": singleProduct});      
         
     },
     search: function(req, res){
@@ -82,8 +82,7 @@ let productsController = {
             }
             });
             return ultimo;
-        }
-        
+        } 
         let product = {
             id: lastID()+1,
             nombre: req.body.name,
@@ -103,7 +102,7 @@ let productsController = {
         
         fs.writeFileSync(path.join(__dirname, "../data/productsDataBase.json"), products);
         
-        res.redirect("products/productDetail/"+product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
+        res.redirect("productDetail/"+product.id)//*REDIRIGIMOS LA INFORMACION OBTENIDA Y GUARDADA DEL FORMULARIO */
               
         }else{
             res.render("./products/newProduct", { 
