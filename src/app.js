@@ -2,8 +2,10 @@ const express = require("express");
 const path = require("path");
 const routesProducts = require("./routes/products")
 const routesMain = require("./routes/main");
+const routesUsers = require("./routes/users");
 const { json } = require("express");
 const methodOverride = require("method-override")
+const session = require("express-session");
 
 const app = express();
 
@@ -24,9 +26,11 @@ app.use(productsLogs);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+app.use(session( {secret: "Mensaje secreto", resave: true, saveUninitialized: true} ));
 
 app.use("/", routesMain);
 app.use("/products", routesProducts);
+app.use("/users", routesUsers);
 
 app.use((req, res, next)=>{
     res.status(404).render("not-found");

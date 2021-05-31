@@ -75,7 +75,7 @@ let productsController = {
                 }
             
         const lastID=() => {
-            let ultimo = 0
+            let ultimo = 0;
             products.forEach(product=>{
             if (ultimo<product.id){
                 ultimo = product.id;

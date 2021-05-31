@@ -5,7 +5,13 @@
     <%- include("../partials/header.ejs") %>
     <section class="forms">
         <h2>Login de usuario</h2>
-            <form action="/" method="GET" class="form-registro">
+        <% if (locals.errors) { 
+            errors.forEach(error => { %>
+            <p class="errorCreate"><%= error.msg %> </p>             
+        <% }) 
+         }
+         %> 
+            <form action="./login" method="POST" class="form-registro">
             <div class="control-formulario">
                 <input type="text" name="usuario" placeholder="Nombre de usuario" class="control">
             </div>

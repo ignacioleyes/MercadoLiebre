@@ -3,19 +3,60 @@
     <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <article class="contenedor-articulo">
-        <div>
-            <h3><%= product.name %> </h3>
-        </div>              
-        <img src="/img/<%= product.image %>" width="80%">
-        <div class="articulo-x">
-            
-            <div>
-                <p class="precio">$<%= product.price %> </p>
-                <p class="descuento">40% Off</p>
-            </div>                  
-        </div>                 
-    </article>
+    <!-- product detail -->
+	<div class="container-product">
+		<div>
+			<div>
+				<h2 class="products-title"><%= product.name %> </h2>
+			</div>
+		</div>
+		<div class="product-detail">
+			<div>
+				<div>
+					<img src="../../../img/<%= product.image %>" alt="product image" class="product-detail-img">
+					<p class="product-detail-description">
+						<%= product.description %> 
+					</p>
+				</div>
+				<div>
+					<article class="product-detail-info">
+						<h2 class="product-detail-title"><%= product.name %> </h2>
+						
+							<p class="product-detail-price">
+								<span>$<%= product.price %> </span>
+								/
+								<b><%= product.discount %> % OFF</b>
+							</p>
+							<p class="product-detail-price">
+								Descuento $<%= product.price*product.discount/100 %> 
+							</p>
+							<p class="product-detail-price">
+								Precio Oferta $<%= product.price-(product.price*product.discount/100) %> 
+							</p>
+
+						<ul class="actions-list">
+							<li>
+								<i class="fas fa-credit-card"></i>
+								<p>Pagá en 12 cuotas sin interes</p>
+							</li>
+							<li>
+								<i class="fas fa-store"></i>
+								<p>Retiro gratis en locales del vendedor</p>
+							</li>
+						</ul>
+
+						<a href="#" class="buy-now-button">COMPRAR AHORA</a>
+
+						<a href="/products/edit/¿?" class="action-button edit">EDITAR PRODUCTO</a>
+						<form action="/products/delete/¿¿" method="POST" style="display: inline-flex">
+							<button type="submit" class="action-button delete">ELIMINAR</button>
+						</form>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /product detail -->
 </body>
     <%- include("../partials/footer.ejs") %>
 </html>
