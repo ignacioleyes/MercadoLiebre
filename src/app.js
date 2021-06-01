@@ -6,6 +6,8 @@ const routesUsers = require("./routes/users");
 const { json } = require("express");
 const methodOverride = require("method-override")
 const session = require("express-session");
+const productsLogs = require("./middlewares/productsLogs");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -19,12 +21,12 @@ app.listen(process.env.PORT || 3000, ()=>{
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-const productsLogs = require("./middlewares/productsLogs")
 
 app.use(productsLogs);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(methodOverride("_method"));
 app.use(session( {secret: "Mensaje secreto", resave: true, saveUninitialized: true} ));
 

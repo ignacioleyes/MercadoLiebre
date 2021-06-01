@@ -25,20 +25,27 @@ let usersControllers = {
             }else{
                 users = JSON.parse(usersJson);
             }
+            let usuarioALoguearse;
             for(let i = 0; i<users.length; i++){
                 if(users[i].email == req.body.email){
-                    if(bcrypt.compareSync(req.body.password, users[i].password)){
-                        let usuarioAloguearse = users[i];
+                    if(BCrypt.compareSync(req.body.password, users[i].password)){
+                        usuarioALoguearse = users[i];
                         break;
                     }
                 }
             }
-            if(usuarioAloguearse == udefined){
+            if(usuarioALoguearse == undefined){
                 return res.render("./users/login", {errors: [
                     {msg: "Credenciales inválidas"}
                 ]});
             }
             req.session.usuarioLogueado =  usuarioAloguearse;
+
+            if(req.body.recordame != undefined){
+                res.cookie("recordame", usuarioAloguearse.email, { maxAge: 60000 });
+
+            }
+
             res.render("succes");
 
         }else{

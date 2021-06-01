@@ -13,7 +13,7 @@ app.use(express.static(publicPath));
 //---------------VALIDACIONES----------------
 const validateUser = [
     check("usuario").notEmpty().withMessage("Debes completar el campo nombre").bail().isLength({min: 5, max: 20}),
-    check("email").notEmpty().withMessage("Debes ingresar un email").bail().isEmail("La dirección ingresada no es válida"),
+    check("email").notEmpty().withMessage("Debes ingresar un email").bail().isEmail(),
 
 ];
 

@@ -333,6 +333,10 @@ footer h3{
     line-height: 15px;
     font-size: 10px;
 }
+.recordame{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 /*====== Product Detail ======*/
 .container-products{
     display: flex;
