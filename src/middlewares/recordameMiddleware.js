@@ -1,7 +1,8 @@
 function recordameMiddleware (req, res, next){
     next();
     
-    if(req.cookie.recordame != undefined && req.session.usuarioLogueado == undefined){
+    if(req.cookies.recordame != undefined && req.session.usuarioLogueado == undefined){
+        console.log(req.cookies.recordame);
 
         let usersJson = fs.readFileSync(path.join(__dirname, "../data/users.json"), {encoding: "utf-8"});
         let users;
@@ -11,11 +12,12 @@ function recordameMiddleware (req, res, next){
             users = JSON.parse(usersJson);
         }
         for(let i = 0; i<users.length; i++){
-            if(users[i].email == req.cookie.recordame){
+            if(users[i].email == req.cookies.recordame){
                 usuarioALoguearse = users[i];
                 break;  
             }
         }
+        req.session.usuarioLogueado =  usuarioALoguearse;
 
     }
 }

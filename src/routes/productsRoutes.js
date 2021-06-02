@@ -5,10 +5,6 @@ const {body} = require("express-validator")
 const multer = require("multer");
 const productsController = require("../controllers/productsController");
 
-const app = express();
-
-const publicPath = path.resolve(__dirname, "./public");
-app.use(express.static(publicPath));
 
 //---------------VALIDACIONES----------------
 const validateCreateProduct = [

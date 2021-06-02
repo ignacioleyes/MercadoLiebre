@@ -1,13 +1,15 @@
 const express = require("express");
 const path = require("path");
-const routesProducts = require("./routes/products")
-const routesMain = require("./routes/main");
-const routesUsers = require("./routes/users");
+const routesProducts = require("./routes/productsRoutes")
+const routesMain = require("./routes/mainRoutes");
+const routesUsers = require("./routes/usersRoutes");
 const { json } = require("express");
 const methodOverride = require("method-override")
 const session = require("express-session");
 const productsLogs = require("./middlewares/productsLogs");
+const recordameMiddleware = require("./middlewares/recordameMiddleware");
 const cookieParser = require("cookie-parser");
+
 
 const app = express();
 
@@ -22,13 +24,14 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 
+app.use(cookieParser());
 app.use(productsLogs);
+app.use(recordameMiddleware);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cookieParser());
 app.use(methodOverride("_method"));
-app.use(session( {secret: "Mensaje secreto", resave: true, saveUninitialized: true} ));
+app.use(session( {secret: "Mensaje secreto", resave: false, saveUninitialized: true} ));
 
 app.use("/", routesMain);
 app.use("/products", routesProducts);

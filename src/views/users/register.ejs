@@ -5,15 +5,15 @@
     <%- include("../partials/header.ejs") %>  
     <section class="forms">
         <h2>Registro de usuario</h2>
-        <form action="/" method="GET" class="form-registro">
+        <form action="../users/register" method="POST" class="form-registro" enctype="multipart/form-data">
             <div class="control-formulario">
-                <input type="text" name="nombre-apellido" placeholder="Nombre y Apellido" class="control">
+                <input type="text" name="nombre" placeholder="Nombre y Apellido" class="control">
             </div>
             <div class="control-formulario">
-                <input type="text" name="usuario" placeholder="Usuario" class="control">
+                <input type="email" name="email" placeholder="e-mail" class="control">
             </div>
             <div class="control-formulario">
-                <input type="date" name="fecha-nacimiento" placeholder="Fecha de nacimiento" class="control">
+                <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento" class="control">
             </div>
             <div class="control-formulario">
                 <input type="text" name="domicilio" placeholder="Domicilio" class="control">
@@ -33,7 +33,7 @@
             </div> 
             <div class="control-formulario">
                 <label>Ingresá una foto</label>
-                <input type="file" name="avatar" accept=".jpg" multiple class="control">
+                <input type="file" name="avatar" class="control">
             </div> 
             <div class="control-formulario">
                 <label>Contraseña:</label>
