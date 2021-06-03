@@ -4,10 +4,18 @@
 <body>
     <%- include("../partials/header.ejs") %>  
     <section class="forms">
+        <% if (locals.errors) { %>
+            <% for( let oneError in errors ) { %>
+            <p><%= errors[oneError].msg %> </p>
+            <% } %>   
+        <% } %>
         <h2>Registro de usuario</h2>
         <form action="../users/register" method="POST" class="form-registro" enctype="multipart/form-data">
             <div class="control-formulario">
                 <input type="text" name="nombre" placeholder="Nombre y Apellido" class="control">
+                <div class="contol-formulario">
+                    Acá va a ir el error
+                </div>
             </div>
             <div class="control-formulario">
                 <input type="email" name="email" placeholder="e-mail" class="control">
@@ -20,8 +28,8 @@
             </div>
             <div class="control-formulario">
                 <label>Seleccioná tu perfil de usuario:</label>
-                <label><input  type="radio" name="perfil-usuario" value="Comprar">Comprar</label>
-                <label><input type="radio" name="perfil-usuario" value="Vender">Vender</label>
+                <label><input  type="radio" name="perfilUsuario" value="Comprar">Comprar</label>
+                <label><input type="radio" name="perfiUsuario" value="Vender">Vender</label>
             </div>
             <div class="control-formulario">
                 <label>Categorías de interés:</label>
