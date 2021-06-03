@@ -19,12 +19,15 @@ let usersControllers = {
     },
     //procesar la ruta post de register
     processRegister: function(req, res){
-        res.send({
-            body: req.body,
-            file: req.file
-        });
-        
+       const resultValidation = validationResult(req);
 
+       return res.send(resultValidation.mapped());
+
+       if(resultValidation.errors.length > 0){
+           res.render("users/register", {
+               erros: resultValidation.mapped(),
+           });
+       }
     },
     //procesar la ruta post de login
     processLogin: function(req, res){
