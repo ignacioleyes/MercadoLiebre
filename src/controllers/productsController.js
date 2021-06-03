@@ -87,7 +87,7 @@ let productsController = {
             id: lastID()+1,
             nombre: req.body.name,
             precio: req.body.price,
-            descuento: req.body.discout,
+            descuento: req.body.discount,
             stock: req.body.stock,
             categoria: req.body.category,
             image: req.file.filename,
