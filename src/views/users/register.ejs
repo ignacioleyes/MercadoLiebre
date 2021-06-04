@@ -4,32 +4,49 @@
 <body>
     <%- include("../partials/header.ejs") %>  
     <section class="forms">
-        <% if (locals.errors) { %>
-            <% for( let oneError in errors ) { %>
-            <p><%= errors[oneError].msg %> </p>
-            <% } %>   
-        <% } %>
         <h2>Registro de usuario</h2>
         <form action="../users/register" method="POST" class="form-registro" enctype="multipart/form-data">
             <div class="control-formulario">
                 <input type="text" name="nombre" placeholder="Nombre y Apellido" class="control">
-                <div class="contol-formulario">
-                    Acá va a ir el error
-                </div>
+                <% if (locals.errors && errors.nombre) { %>
+                    <div class="errorMsg">
+                        <%= errors.nombre.msg %> 
+                    </div>
+                <% } %>
             </div>
             <div class="control-formulario">
                 <input type="email" name="email" placeholder="e-mail" class="control">
+                <% if (locals.errors && errors.email) { %>
+                    <div class="errorMsg">
+                        <%= errors.email.msg %> 
+                    </div>
+                <% } %>
             </div>
             <div class="control-formulario">
                 <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento" class="control">
+                <% if (locals.errors && errors.fechaNacimiento) { %>
+                    <div class="errorMsg">
+                        <%= errors.fechaNacimiento.msg %> 
+                    </div>
+                <% } %>
             </div>
             <div class="control-formulario">
                 <input type="text" name="domicilio" placeholder="Domicilio" class="control">
+                <% if (locals.errors && errors.domicilio) { %>
+                    <div class="errorMsg">
+                        <%= errors.domicilio.msg %> 
+                    </div>
+                <% } %>
             </div>
             <div class="control-formulario">
                 <label>Seleccioná tu perfil de usuario:</label>
                 <label><input  type="radio" name="perfilUsuario" value="Comprar">Comprar</label>
                 <label><input type="radio" name="perfiUsuario" value="Vender">Vender</label>
+                <% if (locals.errors && errors.perfilUsuario) { %>
+                    <div class="errorMsg">
+                        <%= errors.perfilUsuario.msg %> 
+                    </div>
+                <% } %>
             </div>
             <div class="control-formulario">
                 <label>Categorías de interés:</label>
@@ -38,6 +55,11 @@
                 <label><input type="checkbox" name="categorias" value="hogar">Hogar</label>
                 <label><input type="checkbox" name="categorias" value="jugueteria">Juguetería</label>
                 <label><input type="checkbox" name="categorias" value="vida-sana">Vida sana</label>
+                <% if (locals.errors && errors.categorias) { %>
+                    <div class="errorMsg">
+                        <%= errors.categorias.msg %> 
+                    </div>
+                <% } %>
             </div> 
             <div class="control-formulario">
                 <label>Ingresá una foto</label>
@@ -46,10 +68,20 @@
             <div class="control-formulario">
                 <label>Contraseña:</label>
                 <input type="password" name="password" class="control" minlength="8" maxlength="15">
+                <% if (locals.errors && errors.password) { %>
+                    <div class="errorMsg">
+                        <%= errors.password.msg %> 
+                    </div>
+                <% } %>
             </div>  
             <div class="control-formulario">
                 <label>Confirmar contraseña:</label>
                 <input type="password" name="password" class="control" minlength="8" maxlength="15">
+                <% if (locals.errors && errors.password) { %>
+                    <div class="errorMsg">
+                        <%= errors.password.msg %> 
+                    </div>
+                <% } %>
             </div>  
                 <button type="reset" class="boton">Borrar</button>
                 <button type="submit" class="boton">Enviar</button>

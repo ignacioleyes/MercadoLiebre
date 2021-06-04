@@ -328,10 +328,11 @@ footer h3{
     line-height: 25px;
     margin: 10px;  
 }
-.errorCreate{
+.errorMsg{
     color:#f3600b;
-    line-height: 15px;
     font-size: 10px;
+    font-weight: bold;
+    margin-top: 3px;
 }
 .recordame{
     font-weight: bold;

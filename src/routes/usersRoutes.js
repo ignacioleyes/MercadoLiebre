@@ -1,9 +1,8 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
-const {body} = require("express-validator");
 const usersController = require("../controllers/usersController");
-const { maxHeaderSize } = require("http");
+const {body} = require("express-validator");
 const multer = require("multer");
 
 const storage = multer.diskStorage({
@@ -25,8 +24,8 @@ const validateUserLogin = [
 ];
 const validateUserRegister = [
     body("nombre").notEmpty().withMessage("Debes completar el campo nombre"),
-    body("fechaNacimiento").notEmpty().withMessage("Debes completar el campo fecha de nacimiento"),
     body("email").notEmpty().withMessage("Debes completar con un email válido"),
+    body("fechaNacimiento").notEmpty().withMessage("Debes completar el campo fecha de nacimiento"),
     body("domicilio").notEmpty().withMessage("Debes completar el campo domicilio"),
     body("perfilUsuario").notEmpty().withMessage("Debes seleccionar el perfil"),
     body("categorias").notEmpty().withMessage("Debes señeccionar la categoría"),
