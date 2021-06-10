@@ -7,7 +7,8 @@
         <h2>Registro de usuario</h2>
         <form action="../users/register" method="POST" class="form-registro" enctype="multipart/form-data">
             <div class="control-formulario">
-                <input type="text" name="nombre" placeholder="Nombre y Apellido" class="control">
+                <label>Nombre y apellido:</label>
+                <input type="text" name="nombre" class="control" value="<%= locals.oldData ? oldData.nombre : null %>">
                 <% if (locals.errors && errors.nombre) { %>
                     <div class="errorMsg">
                         <%= errors.nombre.msg %> 
@@ -15,7 +16,8 @@
                 <% } %>
             </div>
             <div class="control-formulario">
-                <input type="email" name="email" placeholder="e-mail" class="control">
+                <label>e-mail:</label>
+                <input type="email" name="email" placeholder="un@email.com" class="control" value="<%= locals.oldData ? oldData.email : null %> ">
                 <% if (locals.errors && errors.email) { %>
                     <div class="errorMsg">
                         <%= errors.email.msg %> 
@@ -23,7 +25,8 @@
                 <% } %>
             </div>
             <div class="control-formulario">
-                <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento" class="control">
+                <label>Fecha de nacimiento:</label>
+                <input type="date" name="fechaNacimiento" placeholder="Fecha de nacimiento" class="control" value="<%= locals.oldData ? oldData.fechaNacimiento : null %> ">
                 <% if (locals.errors && errors.fechaNacimiento) { %>
                     <div class="errorMsg">
                         <%= errors.fechaNacimiento.msg %> 
@@ -31,7 +34,8 @@
                 <% } %>
             </div>
             <div class="control-formulario">
-                <input type="text" name="domicilio" placeholder="Domicilio" class="control">
+                <label>Domicilio:</label>
+                <input type="text" name="domicilio" class="control" value="<%= locals.oldData ? oldData.domicilio : null %>">
                 <% if (locals.errors && errors.domicilio) { %>
                     <div class="errorMsg">
                         <%= errors.domicilio.msg %> 
@@ -40,8 +44,15 @@
             </div>
             <div class="control-formulario">
                 <label>Seleccioná tu perfil de usuario:</label>
-                <label><input  type="radio" name="perfilUsuario" value="Comprar">Comprar</label>
-                <label><input type="radio" name="perfiUsuario" value="Vender">Vender</label>
+                <select name="perfilUsuario" class="control">
+                    <option value="">Elegí un perfil</option>
+                    <%
+                        let users = ["Comprar", "Vender"]; 
+                    %>
+                    <% for( let oneUser of users ) { %>
+                        <option value="<%= oneUser %>" <%= locals.oldData && (oneUser === oldData.perfilUsuario) ? "selected" : null %> > <%= oneUser %> </option>  
+                    <% } %> 
+                </select>
                 <% if (locals.errors && errors.perfilUsuario) { %>
                     <div class="errorMsg">
                         <%= errors.perfilUsuario.msg %> 
@@ -64,6 +75,11 @@
             <div class="control-formulario">
                 <label>Ingresá una foto</label>
                 <input type="file" name="avatar" class="control">
+                <% if (locals.errors && errors.avatar) { %>
+                    <div class="errorMsg">
+                        <%= errors.avatar.msg %> 
+                    </div>
+                <% } %>
             </div> 
             <div class="control-formulario">
                 <label>Contraseña:</label>
@@ -76,7 +92,7 @@
             </div>  
             <div class="control-formulario">
                 <label>Confirmar contraseña:</label>
-                <input type="password" name="password" class="control" minlength="8" maxlength="15">
+                <input type="password" name="repassword" class="control" minlength="8" maxlength="15">
                 <% if (locals.errors && errors.password) { %>
                     <div class="errorMsg">
                         <%= errors.password.msg %> 

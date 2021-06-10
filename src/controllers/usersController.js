@@ -19,12 +19,57 @@ let usersControllers = {
     },
     //procesar la ruta post de register
     processRegister: function(req, res){
-       let resultValidation = validationResult(req);
+        let errors = validationResult(req);
 
-       if(resultValidation.errors.length > 0){
-           res.render("users/register", {
-               errors: resultValidation.mapped(),
-           });
+       if(errors.isEmpty()){
+            let usersDatabase = fs.readFileSync(path.join(__dirname, "../data/usersDataBase.json"), {encoding: "utf-8"});
+            console.log("usersDatabase",usersDatabase);
+            let users;
+            if(usersDatabase == ""){
+                console.log("a");
+                users = [];
+            }else{
+                users = JSON.parse(usersDatabase);
+            }
+        const lastID=() => {
+            let ultimo = 0;
+            users.forEach(user=>{
+            if (ultimo<user.id){
+                ultimo = user.id;
+            }
+            });
+            return ultimo;
+            }
+            console.log(req.body);
+
+            let user = {
+                id: lastID()+1,
+                nombre: req.body.nombre,
+                email: req.body.email,
+                fechaNacimiento: req.body.fechaNacimiento,
+                domicilio: req.body.domicilio,
+                perfilUsuario: req.body.perfilUsuario,
+                categoria: req.body.categorias,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: req.file.filename,
+            }
+            users.push(user);
+            console.log("user",user);
+
+            
+            users = JSON.stringify(users, null, 4);
+            console.log("users",users);
+            
+            fs.writeFileSync(path.join(__dirname, "../data/usersDataBase.json"), users); 
+
+            res.redirect("/");
+
+        }else{
+            console.log(resultValidation.mapped())
+        res.render("users/register", {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+        });
        }
     },
     //procesar la ruta post de login
@@ -32,7 +77,7 @@ let usersControllers = {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-            let usersJson = fs.readFileSync(path.join(__dirname, "../data/users.json"), {encoding: "utf-8"});
+            let usersJson = fs.readFileSync(path.join(__dirname, "../data/usersDatabase.json"), {encoding: "utf-8"});
             let users;
             if(usersJson == ""){
                 users = [];
@@ -40,9 +85,10 @@ let usersControllers = {
                 users = JSON.parse(usersJson);
             }
             let usuarioALoguearse;
+            
             for(let i = 0; i<users.length; i++){
                 if(users[i].email == req.body.email){
-                    if(req.body.password == users[i].password){
+                    if(bcrypt.compareSync(req.body.password, users[i].password)){
                         usuarioALoguearse = users[i];
                         break;
                     }

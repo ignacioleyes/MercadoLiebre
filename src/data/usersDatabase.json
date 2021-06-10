@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "nombre": " Juan Ignacio",
+        "email": "juanignacioleyes@gmail.com",
+        "fechaNacimiento": "1986-12-06",
+        "domicilio": " Belgrano 1800",
+        "perfilUsuario": "Comprar",
+        "categoria": "electro",
+        "password": "$2a$10$Uej9maKmQpEDBMoQk/slgOwvjSjkZzDf64a2ovHqgt4XT6Ua0262C",
+        "avatar": "user-1623200554826.jpg"
+    }
+]

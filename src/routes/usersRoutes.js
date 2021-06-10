@@ -24,12 +24,29 @@ const validateUserLogin = [
 ];
 const validateUserRegister = [
     body("nombre").notEmpty().withMessage("Debes completar el campo nombre"),
-    body("email").notEmpty().withMessage("Debes completar con un email válido"),
+    body("email").notEmpty().withMessage("Debes completar con un email").bail().isEmail().withMessage("Debes completar un formato de email válido"),
     body("fechaNacimiento").notEmpty().withMessage("Debes completar el campo fecha de nacimiento"),
     body("domicilio").notEmpty().withMessage("Debes completar el campo domicilio"),
     body("perfilUsuario").notEmpty().withMessage("Debes seleccionar el perfil"),
     body("categorias").notEmpty().withMessage("Debes señeccionar la categoría"),
     body("password").notEmpty().withMessage("Debes elegir una contraseña"),
+    body("avatar").custom((value, {req})=>{
+        let file = req.file;
+        let acceptedExtensions = [".jpg", ".png", ".gif"];
+        
+        if(!file){
+            throw new Error("Tienes que subir una imágen");
+        }else{
+            let fileExtension = path.extname(file.originalname);
+            if(!acceptedExtensions.includes(fileExtension)){
+                throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(", ")}`);
+
+        }
+
+
+        }
+        return true;
+    })
 ]
 
 //Ruta de direccionamiento al login------------------------------
