@@ -23,10 +23,8 @@ let usersControllers = {
 
        if(errors.isEmpty()){
             let usersDatabase = fs.readFileSync(path.join(__dirname, "../data/usersDataBase.json"), {encoding: "utf-8"});
-            console.log("usersDatabase",usersDatabase);
             let users;
             if(usersDatabase == ""){
-                console.log("a");
                 users = [];
             }else{
                 users = JSON.parse(usersDatabase);
@@ -40,8 +38,6 @@ let usersControllers = {
             });
             return ultimo;
             }
-            console.log(req.body);
-
             let user = {
                 id: lastID()+1,
                 nombre: req.body.nombre,
@@ -54,20 +50,16 @@ let usersControllers = {
                 avatar: req.file.filename,
             }
             users.push(user);
-            console.log("user",user);
-
-            
+ 
             users = JSON.stringify(users, null, 4);
-            console.log("users",users);
             
             fs.writeFileSync(path.join(__dirname, "../data/usersDataBase.json"), users); 
 
             res.redirect("/");
 
         }else{
-            console.log(resultValidation.mapped())
         res.render("users/register", {
-            errors: resultValidation.mapped(),
+            errors: errors.mapped(),
             oldData: req.body
         });
        }

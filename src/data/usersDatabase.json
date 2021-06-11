@@ -9,5 +9,19 @@
         "categoria": "electro",
         "password": "$2a$10$Uej9maKmQpEDBMoQk/slgOwvjSjkZzDf64a2ovHqgt4XT6Ua0262C",
         "avatar": "user-1623200554826.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Luisito Crescente",
+        "email": "un@email.com",
+        "fechaNacimiento": "1991-01-01",
+        "domicilio": "España 1200",
+        "perfilUsuario": "Comprar",
+        "categoria": [
+            "moda",
+            "vida-sana"
+        ],
+        "password": "$2a$10$ol/n251M5iIyZEsxuw3QUuXVZmY..xkfMa8x0fcC1y5oM29.KxMie",
+        "avatar": "user-1623364530779.jpg"
     }
 ]
