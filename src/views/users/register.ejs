@@ -17,7 +17,7 @@
             </div>
             <div class="control-formulario">
                 <label>e-mail:</label>
-                <input type="email" name="email" placeholder="un@email.com" class="control" value="<%= locals.oldData ? oldData.email : null %> ">
+                <input type="email" name="email" placeholder="un@email.com" class="control" value="<%= locals.oldData ? oldData.email : null %>">
                 <% if (locals.errors && errors.email) { %>
                     <div class="errorMsg">
                         <%= errors.email.msg %> 

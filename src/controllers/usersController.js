@@ -5,8 +5,6 @@ const bcrypt = require("bcryptjs");
 
 
 
-//const jsonTable = require("../data/users.json");
-
 let usersControllers = {
 
     //mostrar formulario login------------
